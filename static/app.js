@@ -54,22 +54,6 @@ function addNotes(_note, clef) {
   }
 }
 
-var testTrebleNotes = [
-  new Vex.Flow.StaveNote({ keys: ["c#/4"], duration: "q" }).addAccidental(0, new Vex.Flow.Accidental("#")),
-  new Vex.Flow.StaveNote({ keys: ["d/4"], duration: "8" }),
-  new Vex.Flow.BarNote(1),
-  new Vex.Flow.StaveNote({ keys: ["b/4"], duration: "qr"}),
-  new Vex.Flow.StaveNote({ keys: ["c/4", "e/4", "g/4"], duration: "8" })
-];
-
-var testBassNotes = [
-  new Vex.Flow.StaveNote({ clef: 'bass', keys: ["c#/3"], duration: "q" }).addAccidental(0, new Vex.Flow.Accidental("#")),
-  new Vex.Flow.StaveNote({ clef: 'bass', keys: ["d/3"], duration: "8" }),
-  new Vex.Flow.BarNote(1),
-  new Vex.Flow.StaveNote({ clef: 'bass', keys: ["d/3"], duration: "qr"}),
-  new Vex.Flow.StaveNote({ clef: 'bass', keys: ["c/3", "e/3", "g/3"], duration: "8" })
-];
-
 function render() {
   drawGrandStave(getNotes('treble', 0, 5), getNotes('bass', 0, 5), 0);
   drawGrandStave(getNotes('treble', 6, 11), getNotes('bass', 6, 11), 230);
@@ -77,18 +61,19 @@ function render() {
   drawGrandStave(getNotes('treble', 18, 23), getNotes('bass', 18, 23), 680, true);
 }
 
-function drawGrandStave(trebleNotes, bassNotes, verticalPosition, final) {
-  var canvas = $('#music')[0];
-  var renderer = new Vex.Flow.Renderer(canvas, Vex.Flow.Renderer.Backends.SVG);
-  var ctx = renderer.getContext();
-  //ctx.clearRect(0, 0, canvas.width, canvas.height);
-  //renderer.resize(600, 500);
+var canvas = $('#music')[0];
+var renderer = new Vex.Flow.Renderer(canvas, Vex.Flow.Renderer.Backends.CANVAS);
+var ctx = renderer.getContext();
+ctx.scale(0.8, 0.8);
 
+function drawGrandStave(trebleNotes, bassNotes, verticalPosition, final) {
   var upperStave = new Vex.Flow.Stave(30, verticalPosition, 960);
   upperStave.addClef("treble");//.setContext(ctx).draw();
+  upperStave.addTimeSignature('3/8');
 
   var lowerStave = new Vex.Flow.Stave(30, verticalPosition + 100, 960);
   lowerStave.addClef("bass");//.setContext(ctx).draw();
+  lowerStave.addTimeSignature('3/8');
 
   var brace = new Vex.Flow.StaveConnector(upperStave, lowerStave).setType(3);
   var lineLeft = new Vex.Flow.StaveConnector(upperStave, lowerStave).setType(1);
@@ -117,7 +102,7 @@ function drawGrandStave(trebleNotes, bassNotes, verticalPosition, final) {
   var bassBeams = Vex.Flow.Beam.applyAndGetBeams(voice2, null, [new Vex.Flow.Fraction(3, 8)]);
 
   var formatter = new Vex.Flow.Formatter();
-  formatter.format([voice2, voice1], 920);
+  formatter.format([voice2, voice1], 900);
 
   var max_x = Math.max(upperStave.getNoteStartX(), lowerStave.getNoteStartX());
   upperStave.setNoteStartX(max_x);
@@ -125,9 +110,9 @@ function drawGrandStave(trebleNotes, bassNotes, verticalPosition, final) {
 
   upperStave.setContext(ctx).draw();
   lowerStave.setContext(ctx).draw();
-    brace.setContext(ctx).draw();
-    lineLeft.setContext(ctx).draw();
-    lineRight.setContext(ctx).draw();
+  brace.setContext(ctx).draw();
+  lineLeft.setContext(ctx).draw();
+  lineRight.setContext(ctx).draw();
   voice1.draw(ctx, upperStave);
   voice2.draw(ctx, lowerStave);
   trebleBeams.forEach(function(beam) {
