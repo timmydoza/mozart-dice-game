@@ -11,11 +11,11 @@ var notes = require(__dirname + '/lib/notes');
 //                    notes['70'], notes['121'], notes['26'], notes['9'], notes['112'], notes['49'], notes['109'], notes['14']], 80);
 
 var minuet = [];
-for (var i = 1; i < 42; i++) {
+for (var i = 50; i < 68; i++) {
   minuet.push(notes[i]);
 }
 debugger;
-var bytes = parse(minuet);
+var bytes = parse(minuet, 60);
 
 fs.writeFileSync('test.mid', bytes, 'binary');
 debugger;
