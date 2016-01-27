@@ -1,18 +1,25 @@
 {
-  "name": "mozart-dice-gen",
+  "name": "mozart-dice-game",
   "version": "0.0.1",
-  "description": "",
-  "main": "midi.js",
-  "dependencies": {
-    "express": "^4.13.3",
-    "jsmidgen": "^0.1.3"
-  },
-  "devDependencies": {
-    "vexflow": "^1.2.36"
-  },
+  "description": "Generates a random minuet in MIDI format as determined by a dice game written by Wolfgang Amadeus Mozart",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timmydoza/mozart-dice-game.git"
+  },
+  "keywords": [
+    "music",
+    "midi",
+    "mozart",
+    "minuet"
+  ],
+  "author": "Tim Mendoza <timmydoza@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/timmydoza/mozart-dice-game/issues"
+  },
+  "homepage": "https://github.com/timmydoza/mozart-dice-game#readme"
 }
