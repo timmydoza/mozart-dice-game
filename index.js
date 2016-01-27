@@ -47,7 +47,3 @@ module.exports = {
     return minuet;
   }
 };
-
-module.exports.saveMinuet('test.mid', function() {
-  console.log('ok');
-});
