@@ -7,7 +7,11 @@ var diceTables = require(__dirname + '/lib/tables');
 
 module.exports = {
   saveMinuet: function(fileName, callback) {
-    fs.writeFile(fileName, this.getMinuet().bytes, 'binary', callback);
+    if (callback) {
+      fs.writeFile(fileName, this.getMinuet().bytes, 'binary', callback);
+    } else {
+      fs.writeFileSync(filename, this.getMinuet().bytes);
+    }
   },
 
   getMinuet: function(tempo) {
