@@ -10,7 +10,7 @@ module.exports = {
     if (callback) {
       fs.writeFile(fileName, this.getMinuet().bytes, 'binary', callback);
     } else {
-      fs.writeFileSync(filename, this.getMinuet().bytes);
+      fs.writeFileSync(fileName, this.getMinuet().bytes, 'binary');
     }
   },
 
