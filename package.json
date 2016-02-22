@@ -1,10 +1,10 @@
 {
   "name": "mozart-dice-game",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Generates a random minuet in MIDI format as determined by a dice game written by Wolfgang Amadeus Mozart",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/mocha/bin/mocha"
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,8 @@
   },
   "homepage": "https://github.com/timmydoza/mozart-dice-game#readme",
   "devDependencies": {
-    "chai": "^3.5.0"
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
   },
   "dependencies": {
     "jsmidgen": "^0.1.4"
