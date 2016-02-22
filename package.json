@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/timmydoza/mozart-dice-game/issues"
   },
-  "homepage": "https://github.com/timmydoza/mozart-dice-game#readme"
+  "homepage": "https://github.com/timmydoza/mozart-dice-game#readme",
+  "devDependencies": {
+    "chai": "^3.5.0"
+  }
 }

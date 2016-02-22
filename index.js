@@ -22,7 +22,7 @@ module.exports = {
     var notes = [];
     var diceroll, measure, measureNotes;
     //roll the dice
-    for (; minuet.dice.length <= 16; minuet.dice.push(Math.floor(Math.random() * 11)));
+    for (var i = 0; i < 16; minuet.dice.push(Math.floor(Math.random() * 11)), i++);
 
     //get notes for first part
     for (var i = 0; i < 16; i++) {
