@@ -24,5 +24,8 @@
   "homepage": "https://github.com/timmydoza/mozart-dice-game#readme",
   "devDependencies": {
     "chai": "^3.5.0"
+  },
+  "dependencies": {
+    "jsmidgen": "^0.1.4"
   }
 }
