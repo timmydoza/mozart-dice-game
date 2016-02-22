@@ -23,7 +23,7 @@ describe('mozart-dice-game', function() {
       var midiFile = fs.readFileSync(__dirname + '/sync.mid').toString();
       expect(midiFile.slice(0,4)).to.eql('MThd');
     });
-    it('should asyncronously save a valid MIDI file to disk if no callback is provided', function(done) {
+    it('should asyncronously save a valid MIDI file to disk if a callback is provided', function(done) {
       mozart.saveMinuet(__dirname + '/async.mid', function(err) {
         expect(err).to.eql(null);
         var midiFile = fs.readFileSync(__dirname + '/async.mid').toString();
