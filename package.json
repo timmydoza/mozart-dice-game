@@ -1,6 +1,6 @@
 {
   "name": "mozart-dice-game",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Generates a random minuet in MIDI format as determined by a dice game written by Wolfgang Amadeus Mozart",
   "main": "index.js",
   "scripts": {
